@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Чувачок</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+    <link rel="icon" href="icon.ico">
+    <style> 
+      .rounded-img{
+        width: 60%;
+        border-radius: 25%;
+        padding: 1em;
+        margin-bottom: 1em;
+      }
+
+      #text{
+        font-size: 25px;
+      }
+
+      #activatebutton{
+        font-size: 20px;
+        margin-top: 30px;
+        transition: transform 0.5s ease;
+      }
+
+      #activatebutton:hover{
+        transform: scale(1.1);
+      }
+
+      #jmp{
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container text-center my-5"> 
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <img class="rounded-img" src="images/joker.png" alt="Chuvachock">
+          <h1 class="fw-bold">Чувачок</h1>
+          <p class="fw-normal" id="text">Чувачок - крутой человечек впринципе. Он умеет все ваще прям. Чтобы активировать чувачка нажми АКТИВИРОВАТЬ!</p>
+          <a id="activatebutton" class="btn btn-primary" onclick="jumpscare()">Активировать</a>
+        </div>
+      </div>
+    </div>
+
+    <img id="jmp" src="images/jumpscare.png" width="100%" height="100%" style="opacity: 0">
+
+    <script>
+      function jumpscare(){
+        var image = document.getElementById("jmp");
+        var button = document.getElementById("activatebutton");
+        const audio = new Audio('sounds/scare.mp3');
+        image.style.opacity = "1";
+        audio.play();
+        button.style.pointerEvents = "none";
+      }
+    </script>
+</body>
+</html>
